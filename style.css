@@ -1,0 +1,383 @@
+body {
+  position: relative;
+  min-height: 100%;
+}
+
+a {
+  transition: background 0.2s, color 0.2s;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+#wrapper {
+  padding-left: 0;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.chat-container {
+  position: relative;
+  height: calc(100vh - 100px); /* calculate height minus navbar height */
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  /* left: 250px; */
+  width: 0;
+  height: 100%;
+  align-items: center;
+  margin-left: -250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fdf5d5;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+.sidebar-brand{
+  align-content: center;}
+
+.sidebar-brand img {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  padding: 20px 0;
+}
+
+.sidebar-brand h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 75px;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebar-nav > li {
+  text-indent: 10px;
+  line-height: 42px;
+}
+.sidebar-nav > li a {
+  display: block;
+  text-decoration: none;
+  color: #757575;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.sidebar-nav > li > a:hover,
+.sidebar-nav > li.active > a {
+  text-decoration: none;
+  color: #fff;
+  background: #F8BE12;
+}
+
+.sidebar-nav > li > a i.fa {
+  font-size: 24px;
+  width: 60px;
+}
+
+#navbar-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    /* overflow: hidden; */
+}
+
+#wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+#navbar-wrapper .navbar {
+  border-width: 0 0 0 0;
+  background-color: #8c8c8c;
+  font-size: 24px;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+#navbar-wrapper .navbar a {
+  color: white;
+}
+#navbar-wrapper .navbar a:hover {
+  color: #F8BE12;
+}
+
+#navbar-wrapper .navbar-header{
+  display: flex;
+  align-items: center;
+}
+
+#navbar-wrapper .sidebar-brand{
+  margin-right: 10px;
+}
+
+#content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+  top: 100px;
+}
+#wrapper.toggled #content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+#navbar-wrapper h3 {
+  font-family: 'Trebuchet MS', sans-serif;
+  color: white;
+  font-size: 12px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 05px;
+  margin-right: 18px;
+  /* transform: translateY(-50%); */
+}
+
+.profile-button {
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: relative;
+  top: 40px;
+  right: -180px;
+  background-color: #444;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 180px;
+}
+
+.dropdown-menu button {
+  background-color: #444;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+  background-color: #555;
+}
+
+
+
+.chat-output {
+  flex: 1;
+  background-color: #fefefe;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-input {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.chat-input input {
+  flex: 1;
+  background-color: #fdf5d5;
+  padding: 12px 12px 12px 25px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.chat-input input[type="text"]:focus {
+  border: 1px solid #ff0000;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #f0c14b;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.chat-input button:hover {
+  background-color: #ddb347;
+}
+
+.chat-input {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chat-area {
+  /* position: relative; */
+  height: 100vh;
+  overflow-y: auto;
+  height: calc(100vh - 100px);
+  flex: 1;
+}
+
+
+@media (min-width: 992px) {
+  #wrapper {
+    padding-left: 250px;
+  }
+  
+  #wrapper.toggled {
+    padding-left: 0px;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    width: 60px;
+  }
+  
+  #wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -190px;
+}
+  
+  #wrapper.toggled #content-wrapper {
+    position: absolute;
+    margin-right: -190px;
+  }
+
+  #navbar-wrapper {
+    position: relative;
+  }
+
+  /* #wrapper.toggled {
+    padding-left: 60px;
+  } */
+
+  #content-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  #wrapper.toggled #navbar-wrapper,
+  #wrapper.toggled #content-wrapper {
+    position: relative;
+    margin-right: 60px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* #wrapper {
+    padding-left: 60px;
+  } */
+
+  #sidebar-wrapper {
+    width: 60px;
+  }
+  
+#wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+  
+  #wrapper.toggled #content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+
+  #navbar-wrapper {
+    position: relative;
+  }
+
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+
+  #content-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  #wrapper.toggled #navbar-wrapper,
+  #wrapper.toggled #content-wrapper {
+    position: relative;
+    margin-right: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  #wrapper {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 0;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+  }
+  #wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+
+  #wrapper.toggled #content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+
+  #navbar-wrapper {
+    position: relative;
+  }
+
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+
+  #content-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  #wrapper.toggled #navbar-wrapper,
+  #wrapper.toggled #content-wrapper {
+    position: relative;
+    margin-right: 250px;
+  }
+}
